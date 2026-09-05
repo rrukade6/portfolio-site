@@ -439,7 +439,7 @@ body.no-scroll { overflow: hidden; }
 .card__tag { position: absolute; top: 0.9rem; left: 1.05rem; z-index: 4; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); background: rgba(8, 13, 26, 0.6); border: 1px solid rgba(var(--cyan-rgb), 0.35); border-radius: 99px; padding: 0.32rem 0.75rem; backdrop-filter: blur(6px); }
 
 .card h3 { font-family: var(--display); font-weight: 500; font-size: clamp(1.5rem, 2.8vw, 1.9rem); letter-spacing: 0.01em; line-height: 1.05; text-shadow: 0 2px 20px rgba(0, 0, 0, 0.75); }
-.card__featured h3 { font-size: clamp(2rem, 3.6vw, 2.6rem); }
+.card--featured h3 { font-size: clamp(2rem, 3.6vw, 2.6rem); }
 .card__role { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.02em; color: var(--ink-dim); text-align: right; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
 
 /* ==========================================================================
@@ -570,13 +570,13 @@ body.no-scroll { overflow: hidden; }
   .spec { max-width: 34rem; }
   .writing { grid-template-columns: repeat(2, 1fr); }
   .c-8, .c-6, .c-4 { grid-column: span 6; }
-  .card__featured { grid-column: span 12; }
+  .card--featured { grid-column: span 12; }
 }
 
 @media (max-width: 720px) {
   .grid { grid-template-columns: 1fr 1fr; }
   .c-6, .c-4 { grid-column: span 1; }
-  .card__featured { grid-column: span 2; }
+  .card--featured { grid-column: span 2; }
   .hero__tc { display: none; }
   .hero { padding-bottom: 5rem; }
   .footer { justify-content: center; text-align: center; }
@@ -603,10 +603,10 @@ body.no-scroll { overflow: hidden; }
   .nav__toggle { display: flex; }
 
   .grid { grid-template-columns: 1fr; }
-  .card__featured { grid-column: span 1; }
+  .card--featured { grid-column: span 1; }
   .writing { grid-template-columns: 1fr; }
   .card h3 { font-size: 1.35rem; }
-  .card__featured h3 { font-size: 1.7rem; }
+  .card--featured h3 { font-size: 1.7rem; }
   .modal { padding: 6vh var(--gutter); }
   .modal__close { top: -2.6rem; right: 0; }
 }
