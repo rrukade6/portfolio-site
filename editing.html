@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rohit Rukade — Video Editor</title>
+  <meta name="description" content="Rohit Rukade — video editor for feature films, OTT series, and commercial campaigns. Amazon Prime Video, Zee Studios, Aatpat Productions.">
+  <meta name="theme-color" content="#0b0b0d">
+
+  <!-- Social sharing -->
+  <meta property="og:title" content="Rohit Rukade — Video Editor">
+  <meta property="og:description" content="Feature films, OTT series and brand campaigns — every cut intentional.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rrukade6.github.io/portfolio-site/editing.html">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='80'%3E%E2%9C%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Space+Grotesk:wght@300..700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---- editing-page overrides ---- */
+    .editing-resume { max-width: var(--maxw); margin: 0 auto; padding: clamp(5rem, 10vw, 8rem) var(--gutter); }
+
+    .er__header { margin-bottom: clamp(3rem, 6vw, 5rem); }
+    .er__header h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.02; letter-spacing: 0.02em; margin-bottom: 1.2rem; }
+    .er__header p { max-width: 52ch; color: var(--ink-dim); font-size: 1rem; }
+
+    .er__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
+
+    .er__block { border: 1px solid var(--line); border-radius: 4px; background: var(--surface); padding: 2rem; position: relative; overflow: hidden; }
+    .er__block::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, var(--cyan), var(--violet)); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+    .er__block:hover::before { transform: scaleX(1); }
+
+    .er__label { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.6rem; }
+    .er__label::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: linear-gradient(135deg, var(--cyan), var(--violet)); }
+
+    .er__item { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+    .er__item:last-child { border-bottom: 0; }
+    .er__item h3 { font-family: var(--head); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.02em; }
+    .er__item .er__sub { font-size: 0.85rem; color: var(--ink-dim); margin-top: 0.15rem; }
+    .er__item .er__date { font-family: var(--mono); font-size: 0.66rem; color: var(--ink-faint); margin-top: 0.3rem; letter-spacing: 0.08em; }
+    .er__item ul { margin-top: 0.4rem; margin-left: 1rem; }
+    .er__item li { font-size: 0.85rem; color: var(--ink-dim); margin-bottom: 0.2rem; line-height: 1.55; position: relative; padding-left: 0.4rem; }
+    .er__item li::before { content: "▸"; position: absolute; left: -1rem; color: var(--cyan); font-size: 0.7rem; }
+    .er__item li strong { color: var(--ink); }
+
+    .er__skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
+    .er__skill { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); background: rgba(234, 242, 255, 0.03); border: 1px solid var(--line); padding: 0.4rem 0.7rem; border-radius: 3px; transition: border-color 0.25s, color 0.25s; }
+    .er__skill:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .er__credits { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 0.8rem; }
+    .er__credit { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.04em; color: var(--ink-faint); background: rgba(234, 242, 255, 0.03); border: 1px solid var(--line); padding: 0.5rem 0.7rem; border-radius: 3px; transition: border-color 0.25s; }
+    .er__credit:hover { border-color: var(--cyan); }
+    .er__credit strong { font-family: var(--head); text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 0.15rem; font-size: 0.7rem; }
+    .er__credit span { font-family: var(--sans); font-size: 0.68rem; color: var(--ink-dim); }
+
+    .er__cta { margin-top: clamp(3rem, 6vw, 5rem); display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    @media (max-width: 720px) {
+      .er__grid { grid-template-columns: 1fr; }
+      .er__credits { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="index.html" aria-label="Rohit Rukade — home">
+      <span class="nav__mark">RRR<span class="nav__dot">.</span></span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#work"><span class="nav__num">01</span>Work</a>
+      <a href="#resume"><span class="nav__num">02</span>Resume</a>
+      <a href="#contact"><span class="nav__num">03</span>Contact</a>
+      <a class="nav__cta" href="index.html">Full Portfolio</a>
+    </nav>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="kicker h-reveal">
+          <span class="kicker__line"></span>
+          Video Editor
+        </p>
+
+        <h1 class="hero__name">
+          <span class="line h-reveal" style="--d:0.05s">Rohit</span>
+          <span class="line h-reveal" style="--d:0.14s"><em>Rukade</em></span>
+        </h1>
+
+        <p class="hero__tag h-reveal" style="--d:0.24s">
+          <em>Every cut <span class="grad">intentional.</span></em>
+        </p>
+
+        <p class="hero__lede h-reveal" style="--d:0.32s">
+          Ten years behind the cut — from Amazon Prime Video's Matka King to theatrical releases
+          and high-impact brand campaigns. Stories are built in the cut, rhythm first.
+        </p>
+
+        <div class="hero__actions h-reveal" style="--d:0.42s">
+          <a class="btn btn--primary" href="#work">
+            <span class="btn__play">▶</span> View editing reel
+          </a>
+          <a class="btn btn--ghost" href="#contact">Hire me</a>
+        </div>
+      </div>
+
+      <!-- Running timecode -->
+      <div class="hero__tc" aria-hidden="true">
+        <span class="tc__rec"><i></i>REC</span>
+        <span class="tc__clock" id="tcClock">00:00:00:00</span>
+        <span class="tc__fmt">23.98 FPS</span>
+      </div>
+
+      <a class="hero__scroll" href="#work" aria-label="Scroll to work">
+        <span>Scroll</span>
+        <i></i>
+      </a>
+    </section>
+
+    <!-- ============ CREDIT MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Matka King</span><i>✦</i>
+        <span>Amazon Prime Video</span><i>✦</i>
+        <span>Ghar Banduk Biryani</span><i>✦</i>
+        <span>Zee Studios</span><i>✦</i>
+        <span>Sud Shakarambh</span><i>✦</i>
+        <span>Aatpat Productions</span><i>✦</i>
+        <span>Brand Bada Karo</span><i>✦</i>
+        <span>Sudha Sweets</span><i>✦</i>
+        <span>Raj Masala</span><i>✦</i>
+        <span>Makhana Wale</span><i>✦</i>
+        <span>Matka King</span><i>✦</i>
+        <span>Amazon Prime Video</span><i>✦</i>
+        <span>Ghar Banduk Biryani</span><i>✦</i>
+        <span>Zee Studios</span><i>✦</i>
+        <span>Sud Shakarambh</span><i>✦</i>
+        <span>Aatpat Productions</span><i>✦</i>
+        <span>Brand Bada Karo</span><i>✦</i>
+        <span>Sudha Sweets</span><i>✦</i>
+        <span>Raj Masala</span><i>✦</i>
+        <span>Makhana Wale</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ WORK / REEL ============ -->
+    <section class="section" id="work">
+      <span class="mega mega--right" aria-hidden="true">Reel</span>
+      <header class="section__head reveal">
+        <p class="kicker"><span class="kicker__num">01</span> Editing reel</p>
+        <h2 class="section__title">The <em class="grad">cut.</em></h2>
+        <p class="section__lede">
+          Features, OTT series, commercials, and promos — every project shaped in the edit.
+          Click any title to watch.
+        </p>
+        <ul class="stats reveal">
+          <li><b>10+</b> years cutting</li>
+          <li>Feature · OTT · TVC</li>
+          <li>Amazon Prime</li>
+          <li>Aatpat Productions</li>
+        </ul>
+      </header>
+
+      <div class="grid">
+        <!-- Macho — featured -->
+        <article class="card c-8 card--featured reveal" data-video="kiEg4vUQw8E" data-title="Macho — Announcement Teaser · Debut Feature" tabindex="0" role="button" aria-label="Play video: Macho — announcement teaser">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/kiEg4vUQw8E/hqdefault.jpg" alt="Macho — announcement teaser" loading="eager">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Debut Feature</span>
+            <h3>Macho</h3>
+            <p class="card__role">Editor · Director · Writer</p>
+          </div>
+        </article>
+
+        <!-- Matka King -->
+        <article class="card c-6 reveal" style="--d:0.08s" data-video="9T1oy0y8-zY" data-title="Matka King — Official Trailer · Amazon Prime Video Series" tabindex="0" role="button" aria-label="Play video: Matka King — official trailer">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/9T1oy0y8-zY/hqdefault.jpg" alt="Matka King — official trailer" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Amazon Prime Video</span>
+            <h3>Matka King</h3>
+            <p class="card__role">Online Editor &amp; Assistant Editor</p>
+          </div>
+        </article>
+
+        <!-- Ghar Banduk Biryani -->
+        <article class="card c-6 reveal" data-video="_GEf5U9i6-w" data-title="Ghar Banduk Biryani — Theatrical Feature" tabindex="0" role="button" aria-label="Play video: Ghar Banduk Biryani — theatrical feature">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/_GEf5U9i6-w/hqdefault.jpg" alt="Ghar Banduk Biryani — theatrical feature" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Theatrical Feature</span>
+            <h3>Ghar Banduk Biryani</h3>
+            <p class="card__role">Assistant Editor · Zee Studios / Aatpat</p>
+          </div>
+        </article>
+
+        <!-- Sud Shakarambh -->
+        <article class="card c-4 reveal" data-video="dqY4ovLaFnk" data-title="Sud Shakarambh — Official Trailer · Theatrical Feature" tabindex="0" role="button" aria-label="Play video: Sud Shakarambh — official trailer">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/dqY4ovLaFnk/hqdefault.jpg" alt="Sud Shakarambh — theatrical feature official trailer" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Theatrical Feature</span>
+            <h3>Sud Shakarambh</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Brand Bada Karo -->
+        <article class="card c-4 reveal" style="--d:0.08s" data-video="0pEJL-O1SHQ" data-title="Brand Bada Karo — TVC" tabindex="0" role="button" aria-label="Play video: Brand Bada Karo — TVC">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/0pEJL-O1SHQ/hqdefault.jpg" alt="Brand Bada Karo — TVC" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Commercial / TVC</span>
+            <h3>Brand Bada Karo</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Sudha Sweets (Drive) -->
+        <article class="card c-6 card--drive reveal" data-video="1mnYkAYDnfEYIWJ3vyBNmz6D-wc0Svjts" data-title="Sudha Sweets — TVC" tabindex="0" role="button" aria-label="Play: Sudha Sweets — TVC">
+          <div class="card__media is-drive">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">TVC</span>
+            <h3>Sudha Sweets</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Raj Masala (Drive) -->
+        <article class="card c-6 card--drive reveal" style="--d:0.08s" data-video="1IPNOhgnj2VwW7rVNKIsBiZ-s1AiL5DFE" data-title="Raj Masala — TVC" tabindex="0" role="button" aria-label="Play: Raj Masala — TVC ad">
+          <div class="card__media is-drive">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">FMCG Commercial</span>
+            <h3>Raj Masala</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Makhana Wale Ad 01 (Drive) -->
+        <article class="card c-6 card--drive reveal" data-video="1PGyj3y0_YqYMTHAH6E9QulzAMW2wPCvT" data-title="Makhana Wale Ad 01 — TVC" tabindex="0" role="button" aria-label="Play: Makhana Wale ad 01 — TVC">
+          <div class="card__media is-drive">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">FMCG Commercial</span>
+            <h3>Makhana Wale Ad 01</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Makhana Wale Ad 02 (Drive) -->
+        <article class="card c-6 card--drive reveal" style="--d:0.08s" data-video="1_M5GtyS-YzFw3Il31KgGgd-PGDlzqEOY" data-title="Makhana Wale Ad 02 — TVC" tabindex="0" role="button" aria-label="Play: Makhana Wale ad 02 — TVC">
+          <div class="card__media is-drive">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">FMCG Commercial</span>
+            <h3>Makhana Wale Ad 02</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Sanjay Ghodawat Academy -->
+        <article class="card c-4 reveal" data-video="i0k1usODKGY" data-title="Sanjay Ghodawat Academy — Institutional" tabindex="0" role="button" aria-label="Play video: Sanjay Ghodawat Academy">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/i0k1usODKGY/hqdefault.jpg" alt="Sanjay Ghodawat Academy film" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Institutional</span>
+            <h3>Sanjay Ghodawat Academy</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Amenorrhea -->
+        <article class="card c-6 reveal" data-video="9krmH4RnvjA" data-title="Amenorrhea — Black & White Short Film" tabindex="0" role="button" aria-label="Play video: Amenorrhea — black and white short film">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/9krmH4RnvjA/hqdefault.jpg" alt="Amenorrhea — black and white short film" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Short Film · B&W</span>
+            <h3>Amenorrhea</h3>
+            <p class="card__role">Editor</p>
+          </div>
+        </article>
+
+        <!-- Aatpat Gappa Part 1 -->
+        <article class="card c-6 reveal" data-video="y_Y7JmiZJac" data-title="Aatpat Gappa — Part 1 · Ghar Banduk Biryani Promo" tabindex="0" role="button" aria-label="Play video: Aatpat Gappa part 1 — Ghar Banduk Biryani promo">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/y_Y7JmiZJac/hqdefault.jpg" alt="Aatpat Gappa — part 1" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Digital Promo</span>
+            <h3>Aatpat Gappa — Part 1</h3>
+            <p class="card__role">Editor · Ghar Banduk Biryani</p>
+          </div>
+        </article>
+
+        <!-- Aatpat Gappa Part 2 -->
+        <article class="card c-6 reveal" style="--d:0.08s" data-video="XUXn5NBpxho" data-title="Aatpat Gappa — Part 2 · Ghar Banduk Biryani Promo" tabindex="0" role="button" aria-label="Play video: Aatpat Gappa part 2 — Ghar Banduk Biryani promo">
+          <div class="card__media">
+            <img src="https://img.youtube.com/vi/XUXn5NBpxho/hqdefault.jpg" alt="Aatpat Gappa — part 2" loading="lazy">
+            <span class="card__play" aria-hidden="true">▶</span>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Digital Promo</span>
+            <h3>Aatpat Gappa — Part 2</h3>
+            <p class="card__role">Editor · Ghar Banduk Biryani</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ EDITING RESUME ============ -->
+    <section class="section section--alt" id="resume">
+      <span class="mega mega--left" aria-hidden="true">Resume</span>
+
+      <div class="editing-resume">
+        <header class="er__header reveal">
+          <p class="kicker"><span class="kicker__num">02</span> Resume</p>
+          <h2>Editing <em class="grad">experience.</em></h2>
+          <p>
+            Ten years cutting features, OTT series, shorts, and commercial campaigns.
+            Three years as in-house editor at Aatpat Productions, Pune.
+          </p>
+        </header>
+
+        <div class="er__grid">
+          <!-- Experience -->
+          <div class="er__block reveal">
+            <div class="er__label">Experience</div>
+
+            <div class="er__item">
+              <h3>In-House Editor</h3>
+              <div class="er__sub">Aatpat Productions · Pune / Mumbai</div>
+              <div class="er__date">2021 – 2024 · 3 Years Full-Time</div>
+              <ul>
+                <li>Full-time editor across features, OTT, and commercial projects</li>
+                <li>End-to-end: assembly, pacing, conform, sound/VFX coordination, online finishing</li>
+                <li>Mentored under senior editors on Avid / FCP X / Premiere pipelines</li>
+              </ul>
+            </div>
+
+            <div class="er__item">
+              <h3>Freelance Editor</h3>
+              <div class="er__sub">Mumbai, India</div>
+              <div class="er__date">2017 – 2021</div>
+              <ul>
+                <li>FMCG TVC editing — <strong>Sudha Sweets</strong>, <strong>Raj Masala</strong>, <strong>Makhana Wale</strong></li>
+                <li>Digital editorial, trailer cutting, promo editing for theatrical releases</li>
+                <li>Color grading, sound design liaison, delivery for broadcast &amp; digital</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Credits -->
+          <div class="er__block reveal" style="--d:0.1s">
+            <div class="er__label">Selected Credits</div>
+            <div class="er__credits">
+              <div class="er__credit"><strong>Matka King</strong><span>Amazon Prime Video · Online Editor &amp; Assistant Editor</span></div>
+              <div class="er__credit"><strong>Macho</strong><span>Feature Film · Editor / Director / Writer</span></div>
+              <div class="er__credit"><strong>Ghar Banduk Biryani</strong><span>Theatrical Feature · Assistant Editor</span></div>
+              <div class="er__credit"><strong>Sud Shakarambh</strong><span>Feature Film · Editor</span></div>
+              <div class="er__credit"><strong>Prey</strong><span>Short Film · Editor / Director / Writer</span></div>
+              <div class="er__credit"><strong>Employment</strong><span>Short Film · Editor / Director / Writer</span></div>
+              <div class="er__credit"><strong>Amenorrhea</strong><span>B&W Short Film · Editor</span></div>
+              <div class="er__credit"><strong>Brand Bada Karo</strong><span>TVC · Editor</span></div>
+              <div class="er__credit"><strong>Sudha Sweets / Raj Masala</strong><span>FMCG TVCs · Editor</span></div>
+              <div class="er__credit"><strong>Makhana Wale</strong><span>FMCG TVCs · Editor</span></div>
+              <div class="er__credit"><strong>Aatpat Gappa</strong><span>Digital Promos · Editor</span></div>
+              <div class="er__credit"><strong>Sanjay Ghodawat Academy</strong><span>Institutional · Editor</span></div>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="er__block reveal" style="--d:0.15s">
+            <div class="er__label">Editing Skills</div>
+            <div class="er__skills">
+              <span class="er__skill">Narrative Pacing &amp; Structure</span>
+              <span class="er__skill">Long-Form Assembly &amp; Conform</span>
+              <span class="er__skill">OTT Series Workflow</span>
+              <span class="er__skill">Commercial / TVC Editing</span>
+              <span class="er__skill">Trailer &amp; Promo Cutting</span>
+              <span class="er__skill">Sound Design Coordination</span>
+              <span class="er__skill">VFX / Online Finishing</span>
+              <span class="er__skill">Color Grading (Editorial)</span>
+              <span class="er__skill">Multi-Cam / Documentary</span>
+              <span class="er__skill">Remote / Cloud Workflows</span>
+            </div>
+          </div>
+
+          <!-- Software -->
+          <div class="er__block reveal" style="--d:0.2s">
+            <div class="er__label">Software</div>
+            <div class="er__skills">
+              <span class="er__skill">Adobe Premiere Pro</span>
+              <span class="er__skill">Final Cut Pro X</span>
+              <span class="er__skill">Avid Media Composer</span>
+              <span class="er__skill">DaVinci Resolve</span>
+              <span class="er__skill">CapCut</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="er__cta reveal" style="--d:0.25s">
+          <a class="btn btn--primary" href="mailto:rrukade6@gmail.com?subject=Editing%20enquiry%20—%20Rohit%20Rukade">
+            <span class="btn__play">▶</span> Hire me for editing
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <span class="mega mega--left" aria-hidden="true">Hire</span>
+
+      <header class="section__head reveal">
+        <p class="kicker"><span class="kicker__num">03</span> Contact</p>
+        <h2 class="section__title">Let's make something<br>that <em class="grad">moves people.</em></h2>
+      </header>
+
+      <div class="contact__body reveal">
+        <p class="contact__line">
+          Open for feature / OTT editing, trailers, and commercial campaigns.
+        </p>
+
+        <div class="contact__email">
+          <a class="contact__mail" href="mailto:rrukade6@gmail.com?subject=Editing%20enquiry%20—%20Rohit%20Rukade">rrukade6@gmail.com</a>
+          <button class="btn btn--ghost btn--copy" id="copyEmail" aria-live="polite">Copy email</button>
+        </div>
+
+        <ul class="contact__meta">
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/rohit-rukade-925a28328/" target="_blank" rel="noopener">in/rohit-rukade <span aria-hidden="true">↗</span></a></li>
+          <li><span>Instagram</span><a href="https://www.instagram.com/rukaderohit/" target="_blank" rel="noopener">@rukaderohit <span aria-hidden="true">↗</span></a></li>
+          <li><span>IMDb</span><a href="https://www.imdb.com/name/nm10464795/" target="_blank" rel="noopener">nm10464795 <span aria-hidden="true">↗</span></a></li>
+          <li><span>Phone</span><a href="tel:+917020234765">+91 70202 34765</a></li>
+          <li><span>Timezone</span><span class="muted">Remote · worldwide</span></li>
+          <li><span>Resume</span><a href="resume.html" target="_blank" rel="noopener">View / Download <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <a class="footer__logo" href="index.html" aria-label="Back to portfolio">RRR<span>.</span></a>
+    <p>© <span id="year">2026</span> Rohit Rajendra Rukade — All rights reserved.</p>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="#work">Work</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+      <a href="index.html">Full Portfolio</a>
+    </nav>
+  </footer>
+
+  <!-- ============ VIDEO MODAL ============ -->
+  <div class="modal" id="videoModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" data-close aria-label="Close video">✕</button>
+      <div class="modal__frame">
+        <iframe id="modalFrame" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="modal__caption" id="modalTitle"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
